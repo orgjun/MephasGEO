@@ -70,9 +70,9 @@ shinyUI(
   
   navbarPage(
     theme = shinythemes::shinytheme("cerulean"),
-    #title = a("Cluster analysis", href = "https://alain003.phs.osaka-u.ac.jp/mephas/", style = "color:white;"),
+    title = a("MephasGEO", href = "https://alain003.phs.osaka-u.ac.jp/mephas/", style = "color:white;"),
     
-    title ="MephasGEO",
+    #title ="MephasGEO",
     collapsible = TRUE,
     #id="navbar",
     position="fixed-top",
@@ -83,7 +83,7 @@ shinyUI(
              titlePanel("差异基因分析"),
              
              conditionalPanel(
-               condition = "!input.explain_on_off",
+               condition = "input.explain_on_off",
                HTML(
                "    
 <h4><b>功能</b></h4>
@@ -120,15 +120,16 @@ shinyUI(
              
              hr(),
             
-             source("0_datainput_ui.R", local=TRUE,encoding = "utf-8")$value)
+             source("0_datainput_ui.R", local=TRUE,encoding = "utf-8")$value),
+tabstop(),
+tablink()
 
 
 
 
   ),
 
-tabstop(),
-tablink()
+
 #navbarMenu("",icon=icon("link"))
 
 ))
