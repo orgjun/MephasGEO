@@ -57,9 +57,10 @@ if(!require("shinydashboard")) install.packages("shinydashboard",update = F,ask 
 library(shinydashboard)
 
 
+
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))#不能有中文路径 用途是切换工作目录到本文件的目录中
 
-
+#C:/mephas/9CLanalysis/www/
 
 shinyUI(
   tagList(
@@ -72,7 +73,7 @@ shinyUI(
     theme = shinythemes::shinytheme("cerulean"),
     title = a("MephasGEO", href = "https://alain003.phs.osaka-u.ac.jp/mephas/", style = "color:white;"),
     
-    #title ="MephasGEO",
+    title ="MephasGEO",
     collapsible = TRUE,
     #id="navbar",
     position="fixed-top",
@@ -83,7 +84,7 @@ shinyUI(
              titlePanel("差异基因分析"),
              
              conditionalPanel(
-               condition = "input.explain_on_off",
+               condition = "!input.explain_on_off",
                HTML(
                "    
 <h4><b>功能</b></h4>
@@ -114,22 +115,19 @@ shinyUI(
 <h4> 请遵照 <b>步骤</b>执行， 程序将会实时性地返回<b>结果</b> </h4>
     
 
-    "
-             )
-             ),
-             
+    
+    ")),             
              hr(),
             
-             source("0_datainput_ui.R", local=TRUE,encoding = "utf-8")$value),
-tabstop(),
-tablink()
-
+             source("0_datainput_ui.R", local=TRUE,encoding = "utf-8")$value)
+hr()
 
 
 
   ),
 
-
+tabstop(),
+tablink()
 #navbarMenu("",icon=icon("link"))
 
 ))

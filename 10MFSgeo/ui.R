@@ -66,8 +66,8 @@ setwd(dirname(rstudioapi::getActiveDocumentContext()$path))#不能有中文路�
 tagList(
   
   includeCSS("style.css"),
-  #stylink(),
-  #tabOF(),
+  stylink(),
+  tabOF(),
   
   navbarPage(
     theme = shinythemes::shinytheme("cerulean"),
@@ -85,7 +85,7 @@ tagList(
              titlePanel("Differential Gene Expression Analysis"),
              
              conditionalPanel(
-               condition = "input.explain_on_off",
+               condition = "!input.explain_on_off",
                HTML(
                "    
 <h4><b>Functions</b></h4>

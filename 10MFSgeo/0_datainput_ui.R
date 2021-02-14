@@ -65,6 +65,8 @@ sidebarLayout(
                dataTableOutput("showexpr"),
                downloadButton('downloadExpr', 'Download Expression Matrix'),
                uiOutput('text_Output1b'),
+               plotOutput("dataBoxBefore"),
+               uiOutput('text_Output1b_2'),
                plotOutput("dataBox"),
                uiOutput('text_Output1all')
 
@@ -158,7 +160,7 @@ sidebarLayout(
                           #HTML("Down genes"),
                           dataTableOutput('GoTable_down'),
                           plotOutput("GOplot_down"),
-                          downloadButton("downlodGO", "Download GO result")
+                 #         downloadButton("downlodGO", "Download GO result")
                           
                           ),
                  tabPanel("KEGG Analysis",
@@ -171,7 +173,7 @@ sidebarLayout(
                           #HTML("Down genes"),
                           dataTableOutput("KEGGTable_down"),
                           plotOutput("KEGGplot_down"),
-                          downloadButton("downlodKEGG", "Download KEGG Result")
+                  #        downloadButton("downlodKEGG", "Download KEGG result")
                           
                           )#KEGG
                )
@@ -181,7 +183,7 @@ sidebarLayout(
       tabPanel("Reproducible R codes",
                verbatimTextOutput("Code"),
                aceEditor("rmd", mode="markdown", value='',readOnly=T, height="500px"),
-               actionButton("gecode","Generate Codes")
+               downloadButton("gecode","Generate Codes")
                ),
       tabPanel("RmarkDown Results",
                uiOutput("RMarkD"),#未实装
