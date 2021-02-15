@@ -73,7 +73,7 @@ shinyUI(
     theme = shinythemes::shinytheme("cerulean"),
     title = a("MephasGEO", href = "https://alain003.phs.osaka-u.ac.jp/mephas/", style = "color:white;"),
     
-    title ="MephasGEO",
+    #title ="MephasGEO",
     collapsible = TRUE,
     #id="navbar",
     position="fixed-top",
@@ -119,11 +119,9 @@ shinyUI(
     ")),             
              hr(),
             
-             source("0_datainput_ui.R", local=TRUE,encoding = "utf-8")$value)
-hr()
-
-
-
+    source("0_datainput_ui.R", local=TRUE,encoding = "utf-8")$value,
+    hr()
+    )
   ),
 
 tabstop(),
